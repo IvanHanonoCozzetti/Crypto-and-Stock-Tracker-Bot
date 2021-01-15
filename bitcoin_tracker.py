@@ -14,9 +14,11 @@ print("Please enter the drop percentage point: ")
 inp_perc = float(input())
 print(inp_perc)
 
+# Send to
 print("Please enter your email address: ")
 send_to = str(input())
 
+# Calculate the percentage with the input number
 perc_calculated = strt_price - strt_price * inp_perc / 100
 print("Percentage:", perc_calculated)
 
@@ -28,10 +30,11 @@ def check_price():
 		print("Starting price: ", strt_price)
 		print("---------------------------------------------")
 		if (bitcoin_price < perc_calculated):
+			# Takes a screenshot and saves it
 			browser = webdriver.Chrome(executable_path=r"your Chrome Driver path\chromedriver.exe")
 			browser.get('https://www.binance.com/en/trade/BTC_USDT')
-			browser.refresh()
-			time.sleep(15)
+			browser.refresh() # Refresh to avoid a pop-up
+			time.sleep(15) # Wait time for the website to fully open
 			browser.save_screenshot('btc.png')
 			browser.close()
 			img = 'btc.png'

@@ -35,6 +35,7 @@ def check_price():
 			browser.get('https://www.binance.com/en/trade/BTC_USDT')
 			browser.refresh() # Refresh to avoid a pop-up
 			time.sleep(15) # Wait time for the website to fully open
+			#browser.execute_script("window.scrollTo(0,350)")  # To scroll down
 			browser.save_screenshot('btc.png')
 			browser.close()
 			img = 'btc.png'
@@ -42,6 +43,7 @@ def check_price():
 			send_mail(img)
 			print('Email alert has been sent.')
 			exit()
+		# Check every 1 minute
 		time.sleep(60)
 
 
@@ -53,6 +55,7 @@ def send_mail(img):
 	msg['To'] = send_to
 
 	text = MIMEText("Bitcoin price: " + str(get_live_price('BTC-USD')))
+	# Passing the data frame to html (for visual purposes)
 	stats_html = get_stats('BTC-USD').to_html()
 	stats = MIMEText(stats_html, 'html')
 	text2 = MIMEText("\nCheck more data and details at Binance: https://www.binance.com/en/trade/BTC_USDT")
@@ -64,13 +67,15 @@ def send_mail(img):
 	image = MIMEImage(img_data, name=os.path.basename(img))
 	msg.attach(image)
 
+	# Server and Port
 	s = smtplib.SMTP('smtp.gmail.com', 587)
 	s.ehlo()
 	s.starttls()
 	s.ehlo()
+	# Email address and password
 	s.login('your email@gmail.com', 'your password')
-	s.sendmail('your email@gmail.com',
-               send_to,
+	s.sendmail('your email@gmail.com', #From
+               send_to, #To
                msg.as_string())
 	s.quit()
 

@@ -12,8 +12,8 @@ Simple Mail Transfer Protocol (SMTP) is a protocol, which handles sending e-mail
 ## Selenium Python (for ChromeDriver)
 Selenium Python bindings provide a simple API to write functional/acceptance tests using Selenium WebDriver. Selenium WebDriver provides a convenient API to access WebDrivers like Firefox, Ie, Chrome, Remote etc. <br /> **The current supported Python versions are 3.5 and above.**
 
-## `email.mime`
+#### `email.mime`
 Email API to build messages structure and individual message objects by hand. This makes a very convenient interface for slicing-and-dicing MIME messages. **In this project it is applied for MIMEText, MIMEImage and MIMEMultipart.**
 
-## `yahoo_fin`
+#### `yahoo_fin`
 yahoo_fin offers a reliable, threaded, and Pythonic way to visualize **real time data** and to download historical market data from Yahoo! finance.

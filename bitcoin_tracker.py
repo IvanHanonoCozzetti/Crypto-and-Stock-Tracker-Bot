@@ -15,9 +15,11 @@ print("Bitcoin price now:", strt_price)
 print("Please enter the drop percentage: ")
 inp_perc = float(input())
 
+# Send to
 print("Please enter your email address: ")
 send_to = str(input())
 
+# Calculate the percentage with the input number
 perc_calculated = strt_price - strt_price * inp_perc / 100
 print("---------------------------------------------")
 print("Your parameters and details", "\nPrice alert: " + str(perc_calculated), "\nDrop percentage: %" + str(inp_perc), "\nEmail address: " + str(send_to))

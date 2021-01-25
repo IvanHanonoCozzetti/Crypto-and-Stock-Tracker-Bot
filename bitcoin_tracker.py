@@ -8,19 +8,19 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 
+# User Interface
 strt_price = float(get_live_price('BTC-USD'))
+print("Crypto and Stock Tracker Bot is now activated.")
 print("Bitcoin price now:", strt_price)
-print("Please enter the drop percentage point: ")
+print("Please enter the drop percentage: ")
 inp_perc = float(input())
-print(inp_perc)
 
-# Send to
 print("Please enter your email address: ")
 send_to = str(input())
 
-# Calculate the percentage with the input number
 perc_calculated = strt_price - strt_price * inp_perc / 100
-print("Percentage:", perc_calculated)
+print("---------------------------------------------")
+print("Your parameters and details", "\nPrice alert: " + str(perc_calculated), "\nDrop percentage: %" + str(inp_perc), "\nEmail address: " + str(send_to))
 
 
 def check_price():

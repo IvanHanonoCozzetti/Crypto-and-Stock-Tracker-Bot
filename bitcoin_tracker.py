@@ -27,6 +27,7 @@ def check_price():
 	while True:
 		bitcoin_price = float(get_live_price('BTC-USD'))
 		print("Bitcoin price now: " + str(bitcoin_price))
+		print("Your price alert: " + str(perc_calculated))
 		print("Starting price: ", strt_price)
 		print("---------------------------------------------")
 		if (bitcoin_price < perc_calculated):
@@ -35,7 +36,7 @@ def check_price():
 			browser.get('https://www.binance.com/en/trade/BTC_USDT')
 			browser.refresh() # Refresh to avoid a pop-up
 			time.sleep(15) # Wait time for the website to fully open
-			#browser.execute_script("window.scrollTo(0,350)")  # To scroll down
+			#browser.execute_script("window.scrollTo(0,350)")   #(To scroll down)
 			browser.save_screenshot('btc.png')
 			browser.close()
 			img = 'btc.png'
@@ -45,7 +46,7 @@ def check_price():
 			exit()
 		# Check every 1 minute
 		time.sleep(60)
-
+		
 
 def send_mail(img):
 	img_data = open(img, 'rb').read()

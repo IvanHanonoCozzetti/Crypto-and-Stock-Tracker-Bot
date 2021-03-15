@@ -1,4 +1,3 @@
-# Crypto and Stock Tracker Bot
 ### Cryptocurrency and Stock tracker Bot. <br />
 <img src="bitcoin1.png">
 
